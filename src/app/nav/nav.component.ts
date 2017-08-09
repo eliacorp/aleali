@@ -1,6 +1,7 @@
 import { Component, Input, OnInit, OnChanges } from '@angular/core';
 import { Location } from '@angular/common';
 import { Router } from '@angular/router';
+import {GlobalService} from '../shared/variables.service';
 import {
   trigger,
   state,
@@ -46,16 +47,22 @@ export class NavComponent implements OnInit {
     };
 
 
-     constructor(location: Location, router: Router) {
+
+
+     constructor(location: Location, router: Router, public _globalService: GlobalService) {
 
 
        router.events.subscribe((val) => {
         if(this.getSegment(location.path(), 1) == 'styling'){
-          this.route='/styling'
+          this.route='/styling';
+          _globalService.isStyling=true;
         }else if(location.path() != ''){
            this.route = location.path();
-           console.log(this.route)
-         }
+           _globalService.isStyling=false;
+        }else if(location.path() == ''){
+          this.route='/';
+          _globalService.isStyling=false;
+        }
         //  else {
         //    this.route = 'Home'
         //  }

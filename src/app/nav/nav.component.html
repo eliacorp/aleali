@@ -1,19 +1,21 @@
 <nav class="nav">
+
+
    <!-- (mouseenter)='openNav()' (mouseout)='closeNav()' -->
   <ul class="nav-ul">
      <!-- [@navUlState]="isNav" -->
     <li class="nav-li" >
        <!-- [@navLiState]="isNav" -->
-      <a [routerLink]="['/']" class="nav-a" [class.nav_active]="route === '/'">home</a>
+      <a [routerLink]="['/']" class="nav-a" [class.nav_active]="route === '/'" [class.blacked_text]="_globalService.isStyling">home</a>
     </li>
     <li class="nav-li">
-      <a [routerLink]="['/styling']" class="nav-a" [class.nav_active]="route === '/styling'">styling</a>
+      <a [routerLink]="['/styling']" class="nav-a" [class.nav_active]="route === '/styling'" [class.blacked_text]="_globalService.isStyling">styling</a>
     </li>
     <li class="nav-li">
-      <a [routerLink]="['/about']" class="nav-a" [class.nav_active]="route === '/about'">about</a>
+      <a [routerLink]="['/about']" class="nav-a" [class.nav_active]="route === '/about'" [class.blacked_text]="_globalService.isStyling">about</a>
     </li>
     <li class="nav-li">
-      <a [routerLink]="['/contact']" class="nav-a" [class.nav_active]="route === '/contact'">contact</a>
+      <a [routerLink]="['/contact']" class="nav-a" [class.nav_active]="route === '/contact'" [class.blacked_text]="_globalService.isStyling">contact</a>
     </li>
   </ul>
 </nav>

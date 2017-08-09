@@ -4,8 +4,8 @@
     <ul class="styling-ul">
       <li *ngFor='let s of styling.results' class="styling-li"
       [style.left]="s.data['styling.position'].value[0].left.value+'vw'"
-      [style.margin-top]="s.data['styling.position'].value[0].top.value+'vh'"
-      >
+      [style.top]="s.data['styling.position'].value[0].top.value+'vh'"
+      draggable>
       <!-- on-mouseover='showBackgroundStyling(true)' on-mouseout="showBackgroundStyling(false)" -->
       <!-- <img [src]="s.data['styling.cover'].value[0].image.value.main.url" alt="" class="styling-cover"
       *ngIf="isBackgroundStyling"

@@ -1,29 +1,30 @@
-<div class="detail" *ngIf="styling_detail" [style.background-color]="styling_detail.data['styling.background'].value">
+<div class="styling-detail" *ngIf="styling_detail" >
+  <!-- [style.background-color]="styling_detail.data['styling.background'].value" -->
 
-<h1 class="detail-title styling">{{styling_detail.data["styling.title"].value["0"].text}}</h1>
+<h1 class="styling-detail-title">{{styling_detail.data["styling.title"].value["0"].text}}</h1>
 
 
-  <div class="detail-cover styling" *ngIf="styling_detail.data['styling.cover'].value[0].image"
+  <div class="styling-detail-cover styling-detail" *ngIf="styling_detail.data['styling.cover'].value[0].image"
   [ngStyle]="{'background-image': 'url(' + styling_detail.data['styling.cover'].value[0].image.value.main.url + ')'}">
   </div>
 
 
   <!-- <h1>{{styling_detail.data['styling.title'].value[0].text}}</h1> -->
 
-  <div class="detail-content styling">
+  <div class="styling-detail-content">
 
-    <ul class="detail-ul styling">
-       <li class="detail-li" *ngFor="let d of styling_detail.data['styling.post'].value">
+    <ul class="styling-detail-ul">
+       <li class="styling-detail-li" *ngFor="let d of styling_detail.data['styling.post'].value">
 
-        <div class="detail-img" *ngIf="d.slice_type=='image'">
+        <div class="styling-detail-img" *ngIf="d.slice_type=='image'">
           <img src="{{d['non-repeat'].image.value.main.url}}" alt="">
         </div>
 
-        <div class="detail-gallery" *ngIf="d.slice_type=='gallery'">
+        <div class="styling-detail-gallery" *ngIf="d.slice_type=='gallery'">
           <img src="{{g.repeat.image.value.main.url}}" alt="" *ngFor="let g of d.value.value">
         </div>
 
-        <div class="detail-video" *ngIf="d.slice_type=='video'">
+        <div class="styling-detail-video" *ngIf="d.slice_type=='video'">
           <iframe [src]="d['non-repeat'].id.value | youtubeEmbed" width="" height=""></iframe>
           <!-- {{d['non-repeat'].id.value | youtubeEmbed}} -->
         </div>

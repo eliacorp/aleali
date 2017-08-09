@@ -1,6 +1,8 @@
 import { Component, Input, OnInit, OnChanges } from '@angular/core';
 import { Location } from '@angular/common';
 import { Router } from '@angular/router';
+import {GlobalService} from '../shared/variables.service';
+
 // import { EncodeURIPipe } from './../shared/encodeURI.pipe';
 
 import {
@@ -32,7 +34,7 @@ export class ShareComponent implements OnInit {
 isShare: boolean;
 encodedRoute: string;
 
- constructor(location: Location, router: Router) {
+ constructor(location: Location, router: Router, public _globalService: GlobalService) {
    router.events.subscribe((val) => {
 
      this.encodedRoute = encodeURI('http://alealimay.com'+location.path());

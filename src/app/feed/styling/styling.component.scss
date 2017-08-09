@@ -5,6 +5,7 @@
 .styling{
   width:100vw;
   height: auto;
+  background-color: $black;
 }
 
 
@@ -19,9 +20,10 @@
   .styling-li{
     position: relative;
     max-width: 30vw;
-    &:nth-child(1){
-      margin-top: $margin-top;
-    }
+    background-color: transparent;
+    // &:nth-child(1){
+    //   margin-top: $margin-top;
+    // }
     .styling-cover{
       width: 200px;
       height: auto;
@@ -30,6 +32,7 @@
     }
     .styling-a{
       .styling-title{
+        color:$white;
 
       }
     }
