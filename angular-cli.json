@@ -26,8 +26,6 @@
         ]
       },
       "scripts": [
-        "../node_modules/jquery/dist/jquery.min.js",
-        "../node_modules/jquery-ui/jquery-ui.js"
       ],
       "environments": {
         "source": "environments/environment.ts",

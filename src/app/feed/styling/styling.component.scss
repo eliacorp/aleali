@@ -4,7 +4,7 @@
 
 .styling{
   width:100vw;
-  height: auto;
+  height: 100vh;
   background-color: $black;
 }
 
@@ -15,7 +15,7 @@
 
 .styling-ul{
   width: 100vw;
-  padding-bottom: 100vh;
+  // padding-bottom: 100vh;
   overflow-x: hidden;
   .styling-li{
     position: relative;
