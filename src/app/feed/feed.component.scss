@@ -1,0 +1,63 @@
+@import 'fonts';
+@import 'variables';
+@import 'mixins';
+
+.feed{
+  width:100vw;
+  height: auto;
+}
+
+
+.feed-content{
+  width: 100vw;
+}
+
+.feed-ul{
+  width: 100vw;
+  padding-bottom: 100vh;
+  .feed-li{
+    z-index:$z-feed;
+    position: relative;
+    margin-top: $margin-top-li;
+    &:first-child{
+      margin-top: $margin-top;
+    }
+    &:last-child{
+      margin-bottom: $margin-top;
+    }
+    a{
+      width: auto;
+      display: block;
+      position: relative;
+      &:hover{
+        .title_left{
+          left:-10%;
+        }
+        .title_right{
+          right:-10%;
+        }
+      }
+    }
+    img{
+      display: block;
+    }
+    h1{
+      transition: all 0.5s ease;
+      -webkit-transition: all 0.5s ease;
+      -moz-transition: all 0.5s ease;
+      -ms-transition: all 0.5s ease;
+      -o-transition: all 0.5s ease;
+    }
+  }
+}
+
+.feed-title{
+  position: absolute;
+  top:50%;
+  right:-1%;
+}
+
+.title_left{
+  right: auto;
+  left:-5%;
+}

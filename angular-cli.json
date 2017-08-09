@@ -8,9 +8,9 @@
       "root": "src",
       "outDir": "dist",
       "assets": [
-  "assets",
-  "favicon.ico"
-],
+        "assets",
+        "favicon.ico"
+      ],
       "index": "index.html",
       "main": "main.ts",
       "polyfills": "polyfills.ts",
@@ -18,8 +18,13 @@
       "tsconfig": "tsconfig.json",
       "prefix": "app",
       "styles": [
-        "styles.css"
+        "app/styles.scss"
       ],
+      "stylePreprocessorOptions": {
+        "includePaths": [
+          "app/styles"
+        ]
+      },
       "scripts": [
       ],
       "environments": {
