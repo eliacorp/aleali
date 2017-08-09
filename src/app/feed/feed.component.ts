@@ -3,11 +3,18 @@ import {PrismicService} from '../shared/prismic.service';
 import {GlobalService} from '../shared/variables.service';
 import {IFeed}from './feed';
 import { DOCUMENT } from '@angular/platform-browser';
+// import fade in animation
+import { fadeInAnimation } from './../_animation/index';
 
 @Component({
   // selector: 'app-feed',
   templateUrl: './feed.component.html',
-  styleUrls: ['./feed.component.scss']
+  styleUrls: ['./feed.component.scss'],
+  // make fade in animation available to this component
+  animations: [fadeInAnimation],
+
+  // attach the fade in animation to the host (root) element of this component
+  host: { '[@fadeInAnimation]': '' }
 })
 export class FeedComponent implements OnInit {
 

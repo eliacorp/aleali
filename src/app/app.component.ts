@@ -1,5 +1,5 @@
 import { Component, HostBinding } from '@angular/core';
-import {slideInDownAnimation} from './animations';
+import { fadeInAnimation } from './_animation/index';
 
 
 // import {}
@@ -7,13 +7,12 @@ import {slideInDownAnimation} from './animations';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss'],
-  animations: [ slideInDownAnimation ]
+  styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
   title = 'app works!';
 
-  @HostBinding('@routeAnimation') routeAnimation = true;
-  @HostBinding('style.display')   display = 'block';
+  // @HostBinding('@routeAnimation') routeAnimation = true;
+  // @HostBinding('style.display')   display = 'block';
   // @HostBinding('style.position')  position = 'absolute';
 }
