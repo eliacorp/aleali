@@ -43,25 +43,27 @@ export class FeedComponent implements OnInit {
        console.log('ng on init');
        console.log(this.feed);
        if(!this.feed){
-         this.getPage(0);
+         this.getPage(1);
        }
      }
 
 
-
      concatResults(obj): void{
+       console.log("concat results")
       this.feed.results= this.feed.results.concat(obj.results);
-      this.feed.next_page=obj.next_page;
       this.feed.page=obj.page;
       this.feed.total_pages=obj.total_pages;
       this.feed.prev_page=obj.prev_page;
+
+      console.log(this.feed);
      }
+
 
      getPage(page): void{
        this._feedService.getFeed('post', page)
        .subscribe(
          feed=>{
-           if(page==0){
+           if(page==1){
              this.feed=feed;
              this._globalService.setLoading(false);
            }else{this.concatResults(feed)}
@@ -86,7 +88,7 @@ export class FeedComponent implements OnInit {
             // alert('bottom reached');
             if(this.feed){
               if((this.feed.page+1)<this.feed.total_pages){
-                this.getPage(this.feed.next_page);
+                this.getPage(this.feed.page+1);
               }
             }
         }

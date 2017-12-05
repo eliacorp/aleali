@@ -1,4 +1,4 @@
-<nav class="nav">
+<nav class="nav" [@navState]="_globalService.isNav">
 
 
    <!-- (mouseenter)='openNav()' (mouseout)='closeNav()' -->
@@ -6,16 +6,17 @@
      <!-- [@navUlState]="isNav" -->
     <li class="nav-li" >
        <!-- [@navLiState]="isNav" -->
-      <a [routerLink]="['/']" class="nav-a" [class.nav_active]="route === '/'" [class.blacked_text]="_globalService.isStyling">home</a>
+       <!-- [class.blacked_text]="_globalService.isStyling" -->
+      <a [routerLink]="['/']" class="nav-a" [class.nav_active]="route === '/'" (click)="_globalService.toggleNav()" [class.blacked_text]="_globalService.isStyling  && !_matchMediaService.IsPhone()">home</a>
     </li>
     <li class="nav-li">
-      <a [routerLink]="['/styling']" class="nav-a" [class.nav_active]="route === '/styling'" [class.blacked_text]="_globalService.isStyling">styling</a>
+      <a [routerLink]="['/styling']" class="nav-a" [class.nav_active]="route === '/styling'" (click)="_globalService.toggleNav()" [class.blacked_text]="_globalService.isStyling  && !_matchMediaService.IsPhone()">styling</a>
     </li>
     <li class="nav-li">
-      <a [routerLink]="['/about']" class="nav-a" [class.nav_active]="route === '/about'" [class.blacked_text]="_globalService.isStyling">about</a>
+      <a [routerLink]="['/about']" class="nav-a" [class.nav_active]="route === '/about'" (click)="_globalService.toggleNav()" [class.blacked_text]="_globalService.isStyling  && !_matchMediaService.IsPhone()">about</a>
     </li>
     <li class="nav-li">
-      <a [routerLink]="['/contact']" class="nav-a" [class.nav_active]="route === '/contact'" [class.blacked_text]="_globalService.isStyling">contact</a>
+      <a [routerLink]="['/contact']" class="nav-a" [class.nav_active]="route === '/contact'" (click)="_globalService.toggleNav()" [class.blacked_text]="_globalService.isStyling && !_matchMediaService.IsPhone()">contact</a>
     </li>
   </ul>
 </nav>

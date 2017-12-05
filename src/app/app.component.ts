@@ -1,6 +1,6 @@
-import { Component, HostBinding } from '@angular/core';
+import { Component, HostBinding, HostListener} from '@angular/core';
 import { fadeInAnimation } from './_animation/index';
-
+import {GlobalService} from './shared/variables.service';
 
 // import {}
 
@@ -11,6 +11,10 @@ import { fadeInAnimation } from './_animation/index';
 })
 export class AppComponent {
   title = 'app works!';
+  constructor(
+    private _globalService: GlobalService
+  ) { }
+
 
   // @HostBinding('@routeAnimation') routeAnimation = true;
   // @HostBinding('style.display')   display = 'block';

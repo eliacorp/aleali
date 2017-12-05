@@ -18,7 +18,7 @@ export class PrismicService {
     console.log(type, page)
    return this._http.get(this._getUrl+'?page='+page+'&type='+type)
      .map((response: Response)=> <any> response.json())
-     .do(data => console.log(data))
+     .do(data => console.log("prismic",data))
      .catch(this.handleError);
  }
 

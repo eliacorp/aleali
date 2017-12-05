@@ -1,16 +1,16 @@
 <div class="detail" *ngIf="detail">
 
-<h1 class="detail-title">{{detail.data["post.title"].value["0"].text}}</h1>
+<h1 class="detail-title">{{detail.data.post.title.value["0"].text}}</h1>
 
-<div class="detail-cover" [ngStyle]="{'background-image': 'url(' + detail.data['post.cover'].value[0].image.value.main.url + ')'}">
+<div class="detail-cover" [ngStyle]="{'background-image': 'url(' + detail.data.post.cover.value[0].image.value.main.url + ')'}">
   <!-- <img [src]="detail.data['post.cover'].value[0].image.value.main.url" alt=""> -->
 </div>
   <!-- <h1>{{detail.data['post.title'].value[0].text}}</h1> -->
 
-  <div class="detail-content" *ngIf="detail.data['post.post'].value">
+  <div class="detail-content" *ngIf="detail.data.post.post.value">
 
     <ul class="detail-ul">
-      <li class="detail-li" *ngFor="let d of detail.data['post.post'].value" >
+      <li class="detail-li" *ngFor="let d of detail.data.post.post.value" >
 
 
         <div class="detail-img" *ngIf="d.slice_type=='image'">
@@ -30,7 +30,7 @@
     </ul>
     <div class="detail-credits">
       <ul class="detail-credits-ul" *ngIf="detail.data['post.credits']">
-        <li class="detail-credits-li" *ngFor="let c of detail.data['post.credits'].value">
+        <li class="detail-credits-li" *ngFor="let c of detail.data.post.credits.value">
           {{c.role.value["0"].text}}: {{c.name.value["0"].text}}
         </li>
       </ul>

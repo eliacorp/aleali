@@ -2,36 +2,80 @@
 
 let request = require('request');
 let fs = require('fs');
-let Prismic = require('prismic-nodejs');
+// let Prismic = require('prismic-nodejs');
+var Prismic = require('prismic-javascript');
 
-var ENDPOINT = "http://aleali.cdn.prismic.io/api";
-var ACCESSTOKEN = null; // Only if your API is private
+const ENDPOINT = "http://aleali.cdn.prismic.io/api";
+const ACCESSTOKEN = 'MC5XaVdqN3lnQUFDOERIaG1j.77-977-9KUzvv73vv73vv70V77-977-9Xe-_ve-_ve-_ve-_ve-_vUHvv71WXlwARe-_ve-_ve-_vXA2ZXgaeg'; // Only if your API is private
+
+
+
+
+// Initialize the prismic.io api
+function initApi(req) {
+  return Prismic.getApi(ENDPOINT, {
+    accessToken: ACCESSTOKEN,
+    req: req
+  });
+}
 
 exports.getAll = function (req, res) {
   var page = req.query.page;
   var type= req.query.type;
   console.log(type);
-  console.log(page);
-    Prismic.Api('https://aleali.cdn.prismic.io/api', function (err, Api) {
-        Api.form('everything')
-            .ref(Api.master())
-            .query(Prismic.Predicates.at('document.type', type))
-            .orderings('[my.'+type+'.date desc]')
-            .pageSize(5)
-            .page(page)
-            .submit(function (err, response) {
+  console.log("page:",page);
 
-
-              console.log("getAll");
-
-              console.log(response);
-
-                res.status(200).json(response);
-
-            });
-      });
+  initApi(req).then(function(api){
+    api.query(
+        Prismic.Predicates.at('document.type', type),
+        { orderings : '[my.'+type+'.date desc]', pageSize : 5, page : page }
+    ).then(function(response) {
+      res.status(200).json(response);
+        // response is the response object, response.results holds the documents
+    });
+  });
 
 };
+
+
+
+
+// Prismic.Api('https://aleali.cdn.prismic.io/api', function (err, Api) {
+//     Api.form('everything')
+//         .ref(Api.master())
+//         .query(Prismic.Predicates.at('document.type', type))
+//         .orderings('[my.'+type+'.date desc]')
+//         .pageSize(5)
+//         .page(page)
+//         .submit(function (err, response) {
+//
+//
+//           console.log("getAll");
+//
+//           console.log(response);
+//
+//             res.status(200).json(response);
+//
+//         });
+//   });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 exports.getSingle = function (req, res) {
@@ -43,23 +87,33 @@ exports.getSingle = function (req, res) {
   }else{
     queryString ='my.post.uid';
   }
-
-
   console.log("getSingle", queryString, uid);
 
 
-  Prismic.Api('https://aleali.cdn.prismic.io/api', function (err, Api) {
-
-      Api.form('everything')
-          .ref(Api.master())
-          .query(Prismic.Predicates.at(queryString, uid))
-          .submit(function (err, response) {
-            console.log(err);
-            console.log(response);
-            res.status(200).json(response.results[0]);
-
-          });
+  initApi(req).then(function(api){
+    api.query(
+        Prismic.Predicates.at(queryString, uid)
+    ).then(function(response) {
+      res.status(200).json(response.results[0]);
+        // response is the response object, response.results holds the documents
     });
+  });
+
+
+
+
+  // Prismic.Api('https://aleali.cdn.prismic.io/api', function (err, Api) {
+  //
+  //     Api.form('everything')
+  //         .ref(Api.master())
+  //         .query(Prismic.Predicates.at(queryString, uid))
+  //         .submit(function (err, response) {
+  //           console.log(err);
+  //           console.log(response);
+  //           res.status(200).json(response.results[0]);
+  //
+  //         });
+  //   });
 
 };
 

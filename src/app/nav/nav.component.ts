@@ -1,7 +1,10 @@
-import { Component, Input, OnInit, OnChanges } from '@angular/core';
+import { Component, Input, OnInit, OnChanges, HostListener} from '@angular/core';
 import { Location } from '@angular/common';
 import { Router } from '@angular/router';
 import {GlobalService} from '../shared/variables.service';
+import { ResponsiveModule } from 'ng2-responsive';
+import { RESPONSIVE_DIRECTIVE } from 'ng2-responsive/responsive';
+import {MatchMediaService} from '../shared/match-media.service';
 import {
   trigger,
   state,
@@ -15,14 +18,15 @@ import {
   templateUrl: './nav.component.html',
   styleUrls: ['./nav.component.scss'],
   animations: [
-    trigger('navLiState', [
+    trigger('navState', [
       state('0', style({
-        height:'0px',
-        position: 'absolute'
+        top:'-100vh'
       })),
       state('1',   style({
-        height:'50px',
-        position: 'relative'
+        top:'0'
+      })),
+      state('3',   style({
+        top:'auto'
       })),
       transition('0 => 1', animate('500ms ease-in')),
       transition('1 => 0', animate('500ms ease-out'))
@@ -39,7 +43,7 @@ import {
 })
 export class NavComponent implements OnInit {
 
-   @Input() isNav : number = 0;
+
 
      route: string;
      getSegment: Function= (url, index) =>{
@@ -49,19 +53,29 @@ export class NavComponent implements OnInit {
 
 
 
-     constructor(location: Location, router: Router, public _globalService: GlobalService) {
+
+
+     constructor(location: Location, router: Router, public _globalService: GlobalService,
+       public _responsiveModule: ResponsiveModule, public _matchMediaService: MatchMediaService) {
 
 
        router.events.subscribe((val) => {
         if(this.getSegment(location.path(), 1) == 'styling'){
           this.route='/styling';
-          _globalService.isStyling=true;
+          this._globalService.isStyling=true;
         }else if(location.path() != ''){
            this.route = location.path();
-           _globalService.isStyling=false;
-        }else if(location.path() == ''){
-          this.route='/';
-          _globalService.isStyling=false;
+           this._globalService.isStyling=false;
+        }else{
+          this.route = location.path();
+          this._globalService.isStyling=false;
+        }
+
+
+        if(location.path() == '/about'){
+          this._globalService.isAbout=true;
+        }else{
+          this._globalService.isAbout=false;
         }
         //  else {
         //    this.route = 'Home'
@@ -71,17 +85,30 @@ export class NavComponent implements OnInit {
 
 
       ngOnInit() {
+        this._globalService.toggleNav();
+        // if(RESPONSIVE_DIRECTIVE.IsMobile){
+        //   this.isNav=true;
+        // }
+
 
       }
 
-      openNav() {
-        this.isNav=1;
-      }
+      // openNav() {
+      //   this.isNav=1;
+      // }
+      //
+      // closeNav() {
+      //   setTimeout(() => {
+      //     this.isNav=0;
+      //   }, 3000);
+      // }
 
-      closeNav() {
-        setTimeout(() => {
-          this.isNav=0;
-        }, 3000);
+
+      @HostListener('window:resize', ['$event'])
+      onResize(event) {
+        console.log(event);
+        event.target.innerWidth;
+        this._globalService.toggleNav();
       }
 
 

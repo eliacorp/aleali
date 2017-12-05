@@ -15,6 +15,7 @@ import { LogoComponent } from './logo/logo.component';
 import { LogotypeComponent } from './logo/logotype.component';
 import { GlobalService } from './shared/variables.service';
 import { EncodeURIPipe } from './shared/encodeURI.pipe';
+import { ResponsiveModule } from 'ng2-responsive'
 
 
 
@@ -35,6 +36,7 @@ import { EncodeURIPipe } from './shared/encodeURI.pipe';
     HttpModule,
     FeedModule,
     BrowserAnimationsModule,
+    ResponsiveModule,
     RouterModule.forRoot([
       {path: 'about', component: AboutComponent},
       {path: 'contact', component: ContactComponent},

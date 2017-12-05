@@ -17,12 +17,15 @@
   width: 100vw;
   height: 100vh;
   display: block;
-  // padding-bottom: 100vh;
+  padding-bottom: 20vh;
   overflow-x: hidden;
   .styling-li{
     position: relative;
     max-width: 30vw;
     background-color: transparent;
+    @include respond-to(phone){
+      width: 100vw;
+    }
     // &:nth-child(1){
     //   margin-top: $margin-top;
     // }

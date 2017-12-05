@@ -7,7 +7,21 @@
   left:$margin-sides;
   width:100px;
   z-index:$z-nav;
+  @include respond-to(phone){
+    height: 100vh;
+    width: 100vw;
+    background-color: $white;
+    left: 0;
+    bottom: auto;
+    top:0;
+    z-index: $z-nav;
+    display: flex;
+    align-items: center;
+    justify-content: center
+  }
 }
+
+
 
 
 .nav-ul{
@@ -15,14 +29,24 @@
   display: block;
   height: auto;
   position: relative;
+  @include respond-to(phone){
+    width: 80vw;
+    display: block;
+    margin: auto;
+  }
   .nav-li{
     width: 100px;
     position: relative;
     display: inline-block;
+    @include respond-to(phone){
+      width: 100%;
+      display: block;
+      text-align: center;
+    }
     a{
       width: 100%;
       display: block;
-      height:100%;
+      height:auto;
       line-height: auto;
       vertical-align: middle;
       transition: margin 0.5s ease;

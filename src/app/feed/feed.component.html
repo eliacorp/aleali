@@ -3,20 +3,22 @@
   <div class="feed-content" *ngIf="feed">
     <ul class="feed-ul">
       <li *ngFor='let f of feed.results' class="feed-li">
-        <a [routerLink]="[f.data['post.type']?.value, f.uid]" class="feed-a"
-        [style.width]="f.data['post.cover'].value[0].width?.value + 'vw'"
-        [style.margin-left]="f.data['post.cover'].value[0].left?.value + 'vw'">
-          <img class="feed-img" [src]="f.data['post.cover']?.value[0].image?.value.main.url"
-          [style.width]="f.data['post.cover'].value[0].width?.value + 'vw'"
-          alt="aleali {{f.data['post.title'].value['0'].text}}" >
+        <a *ngIf="f.data.post.type" [routerLink]="['/',f.data.post.type.value, f.uid]" class="feed-a"
+        [style.width]="f.data.post.cover?.value[0].width?.value + 'vw'"
+        [style.margin-left]="f.data.post.cover?.value[0].left?.value + 'vw'">
+          <img class="feed-img" [src]="f.data.post.cover?.value[0].image?.value.main.url"
+          [style.width]="f.data.post.cover?.value[0].width?.value + 'vw'"
+          alt="aleali {{f.data.post.title?.value['0'].text}}" >
           <h1 class="feed-title"
-          [class.title_left]="f.data['post.cover'].value[0].left?.value>0"
-          [class.title_right]="f.data['post.cover'].value[0].left?.value==0">
-            {{f.data['post.title'].value['0'].text}}
+          [class.title_left]="f.data.post.cover?.value[0].left?.value>0"
+          [class.title_right]="f.data.post.cover?.value[0].left?.value==0">
+            {{f.data.post.title.value['0'].text}}
           </h1>
         </a>
+        <!-- <a *ngIf="!f.data.post.type">
+        </a> -->
 
- <!-- | productFilter:listFilter -->
+       <!-- | productFilter:listFilter -->
       </li>
     </ul>
   </div>
