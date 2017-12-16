@@ -656,6 +656,8 @@ FeedModule = __decorate([
                 // { path: '/event', component: EventComponent },
                 { path: 'look/:id', component: __WEBPACK_IMPORTED_MODULE_5__feed_detail_feed_detail_component__["a" /* FeedDetailComponent */] },
                 { path: 'fw/:id', component: __WEBPACK_IMPORTED_MODULE_5__feed_detail_feed_detail_component__["a" /* FeedDetailComponent */] },
+                { path: 'editorial/:id', component: __WEBPACK_IMPORTED_MODULE_5__feed_detail_feed_detail_component__["a" /* FeedDetailComponent */] },
+                { path: 'event/:id', component: __WEBPACK_IMPORTED_MODULE_5__feed_detail_feed_detail_component__["a" /* FeedDetailComponent */] },
                 // { path: '/look', component: LookComponent },
                 // { path: '/fashionweek', component: FashionweekComponent },
                 { path: 'editorial', component: __WEBPACK_IMPORTED_MODULE_5__feed_detail_feed_detail_component__["a" /* FeedDetailComponent */] },
