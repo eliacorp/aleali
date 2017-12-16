@@ -26,14 +26,15 @@
       <!-- detail -->
 
     </li>
-
-    </ul>
     <div class="detail-credits">
-      <ul class="detail-credits-ul" *ngIf="detail.data['post.credits']">
-        <li class="detail-credits-li" *ngFor="let c of detail.data.post.credits.value">
-          {{c.role.value["0"].text}}: {{c.name.value["0"].text}}
+      <ul class="detail-credits-ul" *ngIf="detail.data.post.credits.value[0]">
+        <li class="detail-credits-li" *ngFor="let c of detail.data.post.credits?.value">
+          {{c.role?.value[0].text}}: <p *ngFor="let n of c.name?.value" >{{n.text}}</p>
+          <a [href]="c.weblink?.value.url">link</a>
         </li>
       </ul>
     </div>
+    </ul>
+
   </div>
 </div>

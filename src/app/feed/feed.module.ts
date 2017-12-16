@@ -32,6 +32,7 @@ import { NgDraggableModule } from 'angular-draggable';
           // { path: '/event', component: EventComponent },
 
           { path: 'look/:id', component: FeedDetailComponent },
+          { path: 'fw/:id', component: FeedDetailComponent },
           // { path: '/look', component: LookComponent },
           // { path: '/fashionweek', component: FashionweekComponent },
           { path: 'editorial', component: FeedDetailComponent },
