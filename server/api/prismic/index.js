@@ -21,6 +21,7 @@ function initApi(req) {
 
 exports.getAll = function (req, res) {
   var page = req.query.page;
+  var page = 'hello';
   var type= req.query.type;
   console.log(type);
   console.log("page:",page);
@@ -31,6 +32,9 @@ exports.getAll = function (req, res) {
         { orderings : '[my.'+type+'.date desc]', pageSize : 5, page : page }
     ).then(function(response) {
       res.status(200).json(response);
+        // response is the response object, response.results holds the documents
+    },function(err) {
+      res.status(err.status).json(err);
         // response is the response object, response.results holds the documents
     });
   });
@@ -95,7 +99,8 @@ exports.getSingle = function (req, res) {
         Prismic.Predicates.at(queryString, uid)
     ).then(function(response) {
       res.status(200).json(response.results[0]);
-        // response is the response object, response.results holds the documents
+    },function(err) {
+      res.status(err.status).json(err);
     });
   });
 
