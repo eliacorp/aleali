@@ -21,7 +21,6 @@ function initApi(req) {
 
 exports.getAll = function (req, res) {
   var page = req.query.page;
-  var page = 'hello';
   var type= req.query.type;
   console.log(type);
   console.log("page:",page);
