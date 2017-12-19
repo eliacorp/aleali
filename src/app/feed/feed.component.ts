@@ -60,6 +60,7 @@ export class FeedComponent implements OnInit {
 
 
      getPage(page): void{
+       this.paginationInProcess=true;
        this._feedService.getFeed('post', page)
        .subscribe(
          feed=>{
@@ -67,10 +68,12 @@ export class FeedComponent implements OnInit {
              this.feed=feed;
              this._globalService.setLoading(false);
            }else{this.concatResults(feed)}
+           this.paginationInProcess=false;
          },
          error=>{
            this.errorMessage=error;
            this._globalService.setLoading(false);
+           this.paginationInProcess=false;
          }
        );
      }

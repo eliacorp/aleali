@@ -543,6 +543,7 @@ var FeedComponent = (function () {
     };
     FeedComponent.prototype.getPage = function (page) {
         var _this = this;
+        this.paginationInProcess = true;
         this._feedService.getFeed('post', page)
             .subscribe(function (feed) {
             if (page == 1) {
@@ -552,9 +553,11 @@ var FeedComponent = (function () {
             else {
                 _this.concatResults(feed);
             }
+            _this.paginationInProcess = false;
         }, function (error) {
             _this.errorMessage = error;
             _this._globalService.setLoading(false);
+            _this.paginationInProcess = false;
         });
     };
     FeedComponent.prototype.onWindowScroll = function () {
