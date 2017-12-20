@@ -23,8 +23,6 @@ exports.getAll = function (req, res) {
   var page = req.query.page;
   var type= req.query.type;
   var page_size = 5;
-  console.log(type);
-  console.log("page:",page);
   if(type=='styling'){
     page_size = 20;
   }
@@ -35,7 +33,6 @@ exports.getAll = function (req, res) {
         { orderings : '[my.'+type+'.date desc]', pageSize : page_size, page : page }
     ).then(function(response) {
       res.status(200).json(response);
-      console.log(response);
         // response is the response object, response.results holds the documents
     },function(err) {
       res.status(err.status).json(err);
@@ -96,7 +93,6 @@ exports.getSingle = function (req, res) {
   }else{
     queryString ='my.post.uid';
   }
-  console.log("getSingle", queryString, uid);
 
 
   initApi(req).then(function(api){
@@ -106,6 +102,7 @@ exports.getSingle = function (req, res) {
       res.status(200).json(response.results[0]);
     },function(err) {
       res.status(err.status).json(err);
+      console.log(err);
     });
   });
 

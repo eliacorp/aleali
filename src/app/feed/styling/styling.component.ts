@@ -4,12 +4,16 @@ import { PrismicService } from '../../shared/prismic.service';
 import {GlobalService} from '../../shared/variables.service';
 import {IStyling}from './styling';
 import { DOCUMENT } from '@angular/platform-browser';
-
+import { fadeInAnimation } from './../../_animation/index';
 
 @Component({
   // selector: 'app-styling',
   templateUrl: './styling.component.html',
-  styleUrls: ['./styling.component.scss']
+  styleUrls: ['./styling.component.scss'],
+   // make fade in animation available to this component
+   animations: [fadeInAnimation],
+   // attach the fade in animation to the host (root) element of this component
+   host: { '[@fadeInAnimation]': '' }
 })
 export class StylingComponent implements OnInit {
 
