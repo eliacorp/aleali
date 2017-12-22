@@ -20,6 +20,11 @@
         <div class="detail-gallery" *ngIf="d.slice_type=='gallery'">
           <img src="{{g.image.value.main.url}}" alt="" *ngFor="let g of d.value.value">
         </div>
+
+        <div class="styling-detail-video" *ngIf="d.slice_type=='video'">
+          <iframe [src]="d['non-repeat']?.id.value | youtubeEmbed" width="" height=""></iframe>
+          <!-- {{d['non-repeat'].id.value | youtubeEmbed}} -->
+        </div>
         <!-- <img src="d.value.value[0].image.value.main.url" alt="" *ngIf="d.slice_type =='image'"> -->
 
 
