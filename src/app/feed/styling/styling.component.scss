@@ -20,11 +20,12 @@
   padding-bottom: 20vh;
   overflow-x: hidden;
   .styling-li{
-    position: relative;
-    max-width: 30vw;
+    position: fixed;
+    max-width: 20vw;
     background-color: transparent;
     @include respond-to(phone){
       width: 100vw;
+      position: relative;
     }
     // &:nth-child(1){
     //   margin-top: $margin-top;

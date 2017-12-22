@@ -42,6 +42,10 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 // Point static path to dist
 app.use(express.static(path.join(__dirname, '/../dist')));
+app.get('/sitemap',function(req,res){
+  res.sendFile(path.join(__dirname+'/../sitemap.xml'));
+});
+
 
 
 // Prismic
