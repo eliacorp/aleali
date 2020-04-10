@@ -3,7 +3,7 @@ import { PrismicService } from '../../shared/prismic.service';
 
 import {GlobalService} from '../../shared/variables.service';
 import {IStyling}from './styling';
-import { DOCUMENT } from '@angular/platform-browser';
+import { DOCUMENT } from '@angular/common';
 import { fadeInAnimation } from './../../_animation/index';
 
 @Component({

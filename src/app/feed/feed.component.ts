@@ -2,7 +2,7 @@ import { Component, OnInit, HostListener, Inject } from '@angular/core';
 import {PrismicService} from '../shared/prismic.service';
 import {GlobalService} from '../shared/variables.service';
 import {IFeed}from './feed';
-import { DOCUMENT } from '@angular/platform-browser';
+import { DOCUMENT } from '@angular/common';
 // import fade in animation
 import { fadeInAnimation } from './../_animation/index';
 

@@ -2,8 +2,8 @@ import { Component, Input, OnInit, OnChanges, HostListener} from '@angular/core'
 import { Location } from '@angular/common';
 import { Router } from '@angular/router';
 import {GlobalService} from '../shared/variables.service';
-import { ResponsiveModule } from 'ng2-responsive';
-import { RESPONSIVE_DIRECTIVE } from 'ng2-responsive/responsive';
+// import { ResponsiveModule } from 'ng2-responsive';
+// import { RESPONSIVE_DIRECTIVE } from 'ng2-responsive/responsive';
 import {MatchMediaService} from '../shared/match-media.service';
 import {
   trigger,
@@ -56,7 +56,7 @@ export class NavComponent implements OnInit {
 
 
      constructor(location: Location, router: Router, public _globalService: GlobalService,
-       public _responsiveModule: ResponsiveModule, public _matchMediaService: MatchMediaService) {
+      public _matchMediaService: MatchMediaService) {
 
 
        router.events.subscribe((val) => {

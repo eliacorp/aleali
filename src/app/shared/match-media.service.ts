@@ -1,8 +1,7 @@
 import { Injectable } from '@angular/core';
 
 @Injectable()
-export class MatchMediaService
-{
+export class MatchMediaService{
     constructor()
     {
 
@@ -71,9 +70,9 @@ export class MatchMediaService
     {
         if (typeof callBack === 'function')
         {
-            var mql: MediaQueryList = window.matchMedia(this.rules.phone);
+            var mql: any = window.matchMedia(this.rules.phone);
 
-            mql.addListener((mql: MediaQueryList) =>
+            mql.addListener((mql: any) =>
             {
                 if (mql.matches)
                 {
@@ -87,9 +86,9 @@ export class MatchMediaService
     {
         if (typeof callBack === 'function')
         {
-            var mql: MediaQueryList = window.matchMedia(this.rules.tablet);
+            var mql: any = window.matchMedia(this.rules.tablet);
 
-            mql.addListener((mql: MediaQueryList) =>
+            mql.addListener((mql: any) =>
             {
                 if (mql.matches)
                 {
@@ -103,9 +102,9 @@ export class MatchMediaService
     {
         if (typeof callBack === 'function')
         {
-            var mql: MediaQueryList = window.matchMedia(this.rules.desktop);
+            var mql: any = window.matchMedia(this.rules.desktop);
 
-            mql.addListener((mql: MediaQueryList) =>
+            mql.addListener((mql: any) =>
             {
                 if (mql.matches)
                 {
@@ -119,9 +118,9 @@ export class MatchMediaService
     {
         if (typeof callBack === 'function')
         {
-            var mql: MediaQueryList = window.matchMedia(this.rules.portrait);
+            var mql: any = window.matchMedia(this.rules.portrait);
 
-            mql.addListener((mql: MediaQueryList) =>
+            mql.addListener((mql: any) =>
             {
                 if (mql.matches)
                 {
@@ -135,9 +134,9 @@ export class MatchMediaService
     {
         if (typeof callBack === 'function')
         {
-            var mql: MediaQueryList = window.matchMedia(this.rules.landscape);
+            var mql: any = window.matchMedia(this.rules.landscape);
 
-            mql.addListener((mql: MediaQueryList) =>
+            mql.addListener((mql: any) =>
             {
                 if (mql.matches)
                 {

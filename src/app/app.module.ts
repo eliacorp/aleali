@@ -1,7 +1,7 @@
 import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
 import {FormsModule} from '@angular/forms';
-import {HttpModule} from '@angular/http';
+import {HttpClientModule} from '@angular/common/http';
 import {RouterModule} from '@angular/router';
 import {FeedModule} from './feed/feed.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -15,7 +15,7 @@ import { LogoComponent } from './logo/logo.component';
 import { LogotypeComponent } from './logo/logotype.component';
 import { GlobalService } from './shared/variables.service';
 import { EncodeURIPipe } from './shared/encodeURI.pipe';
-import { ResponsiveModule } from 'ng2-responsive'
+// import { ResponsiveModule } from 'ng2-responsive'
 
 
 
@@ -33,10 +33,9 @@ import { ResponsiveModule } from 'ng2-responsive'
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule,
+    HttpClientModule,
     FeedModule,
     BrowserAnimationsModule,
-    ResponsiveModule,
     RouterModule.forRoot([
       {path: 'about', component: AboutComponent},
       {path: 'contact', component: ContactComponent},

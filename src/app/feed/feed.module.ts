@@ -14,7 +14,7 @@ import { SharedModule } from '../shared/shared.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { BrowserModule } from '@angular/platform-browser';
-import { NgDraggableModule } from 'angular-draggable';
+// import { NgDraggableModule } from 'angular-draggable';
 
 @NgModule({
     declarations: [
@@ -27,7 +27,6 @@ import { NgDraggableModule } from 'angular-draggable';
     imports: [
         SharedModule,
         BrowserAnimationsModule,
-        NgDraggableModule,
         RouterModule.forChild([
           // { path: '/event', component: EventComponent },
 

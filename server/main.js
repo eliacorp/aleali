@@ -14,13 +14,13 @@ const prismic  = require('./api/prismic');
 const util = require('util');
 const sessions = require('client-sessions');
 const request = require('request');
-const Marketcloud = require('marketcloud-node');
-const Product = require('./api/marketcloud/product');
-const Cart = require('./api/marketcloud/cart');
-const Order = require('./api/marketcloud/order');
+// const Marketcloud = require('marketcloud-node');
+// const Product = require('./api/marketcloud/product');
+// const Cart = require('./api/marketcloud/cart');
+// const Order = require('./api/marketcloud/order');
 const superagent = require('superagent');
 
-const user = require('./api/marketcloud/user');
+// const user = require('./api/marketcloud/user');
 
 // Get our API routes
 const api = require('./routes/api');
@@ -67,14 +67,13 @@ app.get('/api/prismic/get/type', function(req, res){
 
 
 
-//Marketcloud
-let marketcloud = new Marketcloud.Client({
-                      public_key : process.env.public_key,
-                      secret_key : process.env.secret_key
-                  });
-
-exports.marketcloud = marketcloud;
-
+// //Marketcloud
+// let marketcloud = new Marketcloud.Client({
+//                       public_key : process.env.public_key,
+//                       secret_key : process.env.secret_key
+//                   });
+//
+// exports.marketcloud = marketcloud;
 
 
 
