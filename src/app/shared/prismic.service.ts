@@ -1,8 +1,6 @@
-import { Injectable } from '@angular/core'
+import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-// import {Feed} from './feed';
 import {Observable} from 'rxjs';
-import { map } from 'rxjs/operators';
 
 @Injectable()
 export class PrismicService {
@@ -36,10 +34,10 @@ export class PrismicService {
 //     .catch(this.handleError);
 // }
 
- private handleError(error: Response){
-  console.log("error", error);
-  return Observable.throw(error.json().error || 'Server error');
-}
+//  private handleError(error: Response){
+//   console.log("error", error);
+//   return Observable.throw(error.json().error || 'Server error');
+// }
 
 // this.configService.getConfig()
 //   .subscribe((data: Config) => this.config = {

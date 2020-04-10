@@ -14,7 +14,7 @@ import {YoutubeEmbedPipe} from './youtubeEmbed.pipe';
     SafePipe,
     YoutubeEmbedPipe
   ],
-  providers:[PrismicService, GlobalService, MatchMediaService],
+  providers:[MatchMediaService, PrismicService, GlobalService],
   imports:[CommonModule],
   exports:[
     CommonModule,

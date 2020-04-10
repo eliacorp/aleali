@@ -141,6 +141,10 @@ h2{
 main {
     padding: 0 0px;
     min-height: 300px;
+    @include respond-to(phone){
+      height:100vh;
+      overflow:scroll;
+    }
 
     /* side form */
     .view-side-form {
