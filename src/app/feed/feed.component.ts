@@ -76,15 +76,10 @@ export class FeedComponent implements OnInit {
        );
      }
 
-
-
-     @HostListener("window:scroll", [])
-      onWindowScroll() {
-        let number = this.document.body.scrollTop;
-        console.log(window.innerHeight);
-        var body = document.body, html = document.documentElement;
-        var docHeight = Math.max(body.scrollHeight, body.offsetHeight, html.clientHeight,  html.scrollHeight, html.offsetHeight);
-        var windowBottom = window.innerHeight + window.pageYOffset;
+     onScroll(event): void {
+        let number = event.target.scrollTop;
+           var docHeight = Math.max(event.target.scrollHeight, event.target.scrollHeight);
+        var windowBottom = event.target.clientHeight + number;
         if ((windowBottom >= docHeight) &&(this.paginationInProcess==false)) {
             // alert('bottom reached');
             if(this.feed){
@@ -93,6 +88,27 @@ export class FeedComponent implements OnInit {
               }
             }
         }
-      }
+
+         // Interpret the scroll event
+         // Do stuff on inner div scroll
+     }
+
+
+     // @HostListener("window:scroll", [])
+     //  onWindowScroll() {
+     //    let number = this.document.body.scrollTop;
+     //    console.log(window.innerHeight);
+     //    var body = document.body, html = document.documentElement;
+     //    var docHeight = Math.max(body.scrollHeight, body.offsetHeight, html.clientHeight,  html.scrollHeight, html.offsetHeight);
+     //    var windowBottom = window.innerHeight + window.pageYOffset;
+     //    if ((windowBottom >= docHeight) &&(this.paginationInProcess==false)) {
+     //        // alert('bottom reached');
+     //        if(this.feed){
+     //          if((this.feed.page+1)<this.feed.total_pages){
+     //            this.getPage(this.feed.page+1);
+     //          }
+     //        }
+     //    }
+     //  }
 
 }

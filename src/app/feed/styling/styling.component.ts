@@ -73,24 +73,41 @@ export class StylingComponent implements OnInit {
        );
      }
 
-
-
-     @HostListener("window:scroll", [])
-      onWindowScroll() {
-        let number = this.document.body.scrollTop;
-        console.log(window.innerHeight);
-        var body = document.body, html = document.documentElement;
-        var docHeight = Math.max(body.scrollHeight, body.offsetHeight, html.clientHeight,  html.scrollHeight, html.offsetHeight);
-        var windowBottom = window.innerHeight + window.pageYOffset;
+     onStylingScroll(event): void {
+       console.log(event.target.scrollTop);
+        let number = event.target.scrollTop;
+           var docHeight = Math.max(event.target.scrollHeight, event.target.scrollHeight);
+        var windowBottom = event.target.clientHeight + number;
         if ((windowBottom >= docHeight) &&(this.paginationInProcess==false)) {
             // alert('bottom reached');
-            if(this.styling){
-              if((this.styling.page+1)<this.styling.total_pages){
-                this.getPage(this.styling.next_page);
-              }
-            }
+             if(this.styling){
+               if((this.styling.page+1)<this.styling.total_pages){
+                 this.getPage(this.styling.next_page);
+               }
+             }
         }
-      }
+
+         // Interpret the scroll event
+         // Do stuff on inner div scroll
+     }
+
+
+     // @HostListener("window:scroll", [])
+     //  onWindowScroll() {
+     //    let number = this.document.body.scrollTop;
+     //    console.log(window.innerHeight);
+     //    var body = document.body, html = document.documentElement;
+     //    var docHeight = Math.max(body.scrollHeight, body.offsetHeight, html.clientHeight,  html.scrollHeight, html.offsetHeight);
+     //    var windowBottom = window.innerHeight + window.pageYOffset;
+     //    if ((windowBottom >= docHeight) &&(this.paginationInProcess==false)) {
+     //        // alert('bottom reached');
+     //        if(this.styling){
+     //          if((this.styling.page+1)<this.styling.total_pages){
+     //            this.getPage(this.styling.next_page);
+     //          }
+     //        }
+     //    }
+     //  }
 
 
 

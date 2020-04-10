@@ -5,6 +5,10 @@
 .feed{
   width:100vw;
   height: auto;
+  @include respond-to(phone){
+    height:100vh;
+    overflow:scroll;
+  }
 }
 
 
@@ -41,9 +45,9 @@
     img{
       display: block;
       width: 50vw;
-      @include respond-to(phone){
-        width: 100vw !important;
-      }
+      // @include respond-to(phone){
+      //   width: 100vw !important;
+      // }
     }
     h1{
       transition: all 0.5s ease;
