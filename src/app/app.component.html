@@ -4,7 +4,7 @@
 <app-logo></app-logo>
 <app-logotype></app-logotype>
 
-<div class="pop" (click)="_globalService.toggleNav()">
+<div class="pop" (click)="_globalService.toggleNav()" [class.hidden]="_globalService.isPhone">
 </div>
 
 <app-nav></app-nav>
