@@ -13,7 +13,6 @@ const routes  = require('./routes');
 const prismic  = require('./api/prismic');
 const util = require('util');
 const sessions = require('client-sessions');
-const request = require('request');
 // const Marketcloud = require('marketcloud-node');
 // const Product = require('./api/marketcloud/product');
 // const Cart = require('./api/marketcloud/cart');

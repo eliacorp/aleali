@@ -1,6 +1,5 @@
 "use strict"
 
-let request = require('request');
 let fs = require('fs');
 // let Prismic = require('prismic-nodejs');
 var Prismic = require('prismic-javascript');
